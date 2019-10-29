@@ -22,7 +22,7 @@ public class ObjectInstantiate : MonoBehaviour
             instantiatedItem.transform.localPosition = position;
             instantiatedItem.GetComponent<SpriteRenderer>().sortingOrder = UnityEngine.Random.Range(2, 4);
             
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(2f);
         }
     }
 }

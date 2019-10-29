@@ -29,6 +29,7 @@ public class Catch : MonoBehaviour
                     Destroy(obj);
                     manager.point -= 3;
                     PointChangeDisplay.Instance.DisplayChangePoint(-3);
+                    AudioClipCreate.Instance.SoundOn(false);
                     Debug.Log(manager.point);
                 }
                 if (name == "FakeNegi")
@@ -36,6 +37,7 @@ public class Catch : MonoBehaviour
                     Destroy(obj);
                     manager.point -= 3;
                     PointChangeDisplay.Instance.DisplayChangePoint(-3);
+                    AudioClipCreate.Instance.SoundOn(false);
                     Debug.Log(manager.point);
                 }
                 if (name == "FakeShirataki")
@@ -43,6 +45,7 @@ public class Catch : MonoBehaviour
                     Destroy(obj);
                     manager.point -= 3;
                     PointChangeDisplay.Instance.DisplayChangePoint(-3);
+                    AudioClipCreate.Instance.SoundOn(false);
                     Debug.Log(manager.point);
                 }
                 if (name == "FakeTouhu")
@@ -50,6 +53,7 @@ public class Catch : MonoBehaviour
                     Destroy(obj);
                     manager.point -= 3;
                     PointChangeDisplay.Instance.DisplayChangePoint(-3);
+                    AudioClipCreate.Instance.SoundOn(false);
                     Debug.Log(manager.point);
                 }
                 if (name == "Negi")
@@ -57,6 +61,7 @@ public class Catch : MonoBehaviour
                     Destroy(obj);
                     manager.point += 3;
                     PointChangeDisplay.Instance.DisplayChangePoint(3);
+                    AudioClipCreate.Instance.SoundOn(true);
                     Debug.Log(manager.point);
                 }
                 if (name == "Shiitake")
@@ -64,6 +69,7 @@ public class Catch : MonoBehaviour
                     Destroy(obj);
                     manager.point += 3;
                     PointChangeDisplay.Instance.DisplayChangePoint(3);
+                    AudioClipCreate.Instance.SoundOn(true);
                     Debug.Log(manager.point);
                 }
                 if (name == "Shirataki")
@@ -71,6 +77,7 @@ public class Catch : MonoBehaviour
                     Destroy(obj);
                     manager.point += 3;
                     PointChangeDisplay.Instance.DisplayChangePoint(3);
+                    AudioClipCreate.Instance.SoundOn(true);
                     Debug.Log(manager.point);
                 }
                 if (name == "Touhu")
@@ -78,6 +85,7 @@ public class Catch : MonoBehaviour
                     Destroy(obj);
                     manager.point += 3;
                     PointChangeDisplay.Instance.DisplayChangePoint(3);
+                    AudioClipCreate.Instance.SoundOn(true);
                     Debug.Log(manager.point);
                 }
                 if (name == "dumbbell")
@@ -85,6 +93,7 @@ public class Catch : MonoBehaviour
                     Destroy(obj);
                     manager.point -= 10;
                     PointChangeDisplay.Instance.DisplayChangePoint(-10);
+                    AudioClipCreate.Instance.SoundOn(false);
                     Debug.Log(manager.point);
                 }
                 if (name == "fakeKani")
@@ -92,6 +101,7 @@ public class Catch : MonoBehaviour
                     Destroy(obj);
                     manager.point -= 3;
                     PointChangeDisplay.Instance.DisplayChangePoint(-3);
+                    AudioClipCreate.Instance.SoundOn(false);
                     Debug.Log(manager.point);
                 }
                 if (name == "fakeKimuchi")
@@ -99,6 +109,7 @@ public class Catch : MonoBehaviour
                     Destroy(obj);
                     manager.point -= 3;
                     PointChangeDisplay.Instance.DisplayChangePoint(-3);
+                    AudioClipCreate.Instance.SoundOn(false);
                     Debug.Log(manager.point);
                 }
                 if (name == "hakusai")
@@ -106,6 +117,7 @@ public class Catch : MonoBehaviour
                     Destroy(obj);
                     manager.point += 10;
                     PointChangeDisplay.Instance.DisplayChangePoint(10);
+                    AudioClipCreate.Instance.SoundOn(true);
                     Debug.Log(manager.point);
                 }
                 if (name == "Kaeru")
@@ -113,6 +125,7 @@ public class Catch : MonoBehaviour
                     Destroy(obj);
                     manager.point -= 10;
                     PointChangeDisplay.Instance.DisplayChangePoint(-10);
+                    AudioClipCreate.Instance.SoundOn(false);
                     Debug.Log(manager.point);
                 }
                 if (obj.name == "kani")
@@ -120,6 +133,7 @@ public class Catch : MonoBehaviour
                     Destroy(obj);
                     manager.point += 3;
                     PointChangeDisplay.Instance.DisplayChangePoint(3);
+                    AudioClipCreate.Instance.SoundOn(true);
                     Debug.Log(manager.point);
                 }
                 if (name == "kimuchi")
@@ -127,6 +141,7 @@ public class Catch : MonoBehaviour
                     Destroy(obj);
                     manager.point += 3;
                     PointChangeDisplay.Instance.DisplayChangePoint(3);
+                    AudioClipCreate.Instance.SoundOn(true);
                     Debug.Log(manager.point);
                 }
                 if (name == "ninjin")
@@ -134,6 +149,7 @@ public class Catch : MonoBehaviour
                     Destroy(obj);
                     manager.point += 10;
                     PointChangeDisplay.Instance.DisplayChangePoint(10);
+                    AudioClipCreate.Instance.SoundOn(true);
                     Debug.Log(manager.point);
                 }
                 if (name == "tomato")
@@ -141,6 +157,7 @@ public class Catch : MonoBehaviour
                     Destroy(obj);
                     manager.point += 10;
                     PointChangeDisplay.Instance.DisplayChangePoint(10);
+                    AudioClipCreate.Instance.SoundOn(true);
                     Debug.Log(manager.point);
                 }
 
