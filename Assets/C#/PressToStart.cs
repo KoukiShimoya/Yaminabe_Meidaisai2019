@@ -12,6 +12,15 @@ public class PressToStart : MonoBehaviour
 
     private bool down = true;
     
+    private GetJoyconValue getJoyconValue;
+
+    private bool isChangeScene = false;
+
+    private void Start()
+    {
+        getJoyconValue = GetJoyconValue.Instance;
+    }
+    
     private void Update()
     {
         Vector3 scale = this.gameObject.transform.localScale;
@@ -43,10 +52,11 @@ public class PressToStart : MonoBehaviour
                 this.gameObject.transform.localScale = scale;
             }
         }
-    }
 
-    public void OnClick()
-    {
-        SceneManager.LoadScene("GameScene");
+        if (getJoyconValue.IsOverGyroThreshould(false, 20) && !isChangeScene || getJoyconValue.IsOverGyroThreshould(true, 20) && !isChangeScene)
+        {
+            isChangeScene = true;
+            SceneManager.LoadScene("GameScene");
+        }
     }
 }
