@@ -123,7 +123,7 @@ public class Catch : MonoBehaviour
                 Destroy(obj);
                 manager.point += 3;
                 PointChangeDisplay.Instance.DisplayChangePoint(3);
-                getJoyconValue.SetJoyconRumble(shakeAndEnterObject.left_right, 0.6f, 300);
+                getJoyconValue.SetJoyconRumble(shakeAndEnterObject.left_right, 0.6f, 80);
                 AudioClipCreate.Instance.SoundOn(true);
                 Debug.Log(manager.point);
             }
