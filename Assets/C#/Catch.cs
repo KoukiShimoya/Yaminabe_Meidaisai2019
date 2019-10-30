@@ -15,21 +15,39 @@ public class Catch : MonoBehaviour
         getJoyconValue = GetJoyconValue.Instance;
     }
 
-    private GameObject ReturnIngredientsWhileShaking()
+    private class GameObjectBool
     {
-        if (!getJoyconValue.IsOverGyroThreshould(true, 20) && !getJoyconValue.IsOverGyroThreshould(false, 20))
-        {
-            return null;
-        }
+        [CanBeNull] public GameObject gameObject;
+        public bool left_right;
 
-        if (enterObject != null)
+        public GameObjectBool(GameObject gameObject, bool left_right)
         {
-            return enterObject;
+            this.gameObject = gameObject;
+            this.left_right = left_right;
         }
-        else
+    }
+
+    private GameObjectBool ReturnIngredientsWhileShaking()
+    {
+        if (getJoyconValue.IsOverGyroThreshould(true, 15))
         {
-            return null;
+            if (enterObject != null)
+            {
+                return new GameObjectBool(enterObject, true);
+            }
+            return new GameObjectBool(null, true);
         }
+        
+        if (getJoyconValue.IsOverGyroThreshould(false, 15))
+        {
+            if (enterObject != null)
+            {
+                return new GameObjectBool(enterObject, false);
+            }
+            return new GameObjectBool(null, false);
+        }
+        
+        return new GameObjectBool(null, false);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -44,16 +62,17 @@ public class Catch : MonoBehaviour
 
     void Update()
     {
-        GameObject shakeAndEnterObject = ReturnIngredientsWhileShaking();
+        GameObjectBool shakeAndEnterObject = ReturnIngredientsWhileShaking();
         
-        if (shakeAndEnterObject != null)
+        if (shakeAndEnterObject.gameObject != null)
         {
-            GameObject obj = shakeAndEnterObject;
+            GameObject obj = shakeAndEnterObject.gameObject;
             string name = obj.name.Replace("(Clone)", "");
             if (name == "FakeShiitake")
             {
                 Destroy(obj);
                 manager.point -= 3;
+                getJoyconValue.SetJoyconRumble(shakeAndEnterObject.left_right, 0.6f, 300);
                 PointChangeDisplay.Instance.DisplayChangePoint(-3);
                 AudioClipCreate.Instance.SoundOn(false);
                 Debug.Log(manager.point);
@@ -64,6 +83,7 @@ public class Catch : MonoBehaviour
                 Destroy(obj);
                 manager.point -= 3;
                 PointChangeDisplay.Instance.DisplayChangePoint(-3);
+                getJoyconValue.SetJoyconRumble(shakeAndEnterObject.left_right, 0.6f, 300);
                 AudioClipCreate.Instance.SoundOn(false);
                 Debug.Log(manager.point);
             }
@@ -73,6 +93,7 @@ public class Catch : MonoBehaviour
                 Destroy(obj);
                 manager.point -= 3;
                 PointChangeDisplay.Instance.DisplayChangePoint(-3);
+                getJoyconValue.SetJoyconRumble(shakeAndEnterObject.left_right, 0.6f, 300);
                 AudioClipCreate.Instance.SoundOn(false);
                 Debug.Log(manager.point);
             }
@@ -82,6 +103,7 @@ public class Catch : MonoBehaviour
                 Destroy(obj);
                 manager.point -= 3;
                 PointChangeDisplay.Instance.DisplayChangePoint(-3);
+                getJoyconValue.SetJoyconRumble(shakeAndEnterObject.left_right, 0.6f, 300);
                 AudioClipCreate.Instance.SoundOn(false);
                 Debug.Log(manager.point);
             }
@@ -91,6 +113,7 @@ public class Catch : MonoBehaviour
                 Destroy(obj);
                 manager.point += 3;
                 PointChangeDisplay.Instance.DisplayChangePoint(3);
+                getJoyconValue.SetJoyconRumble(shakeAndEnterObject.left_right, 0.6f, 80);
                 AudioClipCreate.Instance.SoundOn(true);
                 Debug.Log(manager.point);
             }
@@ -100,6 +123,7 @@ public class Catch : MonoBehaviour
                 Destroy(obj);
                 manager.point += 3;
                 PointChangeDisplay.Instance.DisplayChangePoint(3);
+                getJoyconValue.SetJoyconRumble(shakeAndEnterObject.left_right, 0.6f, 300);
                 AudioClipCreate.Instance.SoundOn(true);
                 Debug.Log(manager.point);
             }
@@ -109,6 +133,7 @@ public class Catch : MonoBehaviour
                 Destroy(obj);
                 manager.point += 3;
                 PointChangeDisplay.Instance.DisplayChangePoint(3);
+                getJoyconValue.SetJoyconRumble(shakeAndEnterObject.left_right, 0.6f, 80);
                 AudioClipCreate.Instance.SoundOn(true);
                 Debug.Log(manager.point);
             }
@@ -118,6 +143,7 @@ public class Catch : MonoBehaviour
                 Destroy(obj);
                 manager.point += 3;
                 PointChangeDisplay.Instance.DisplayChangePoint(3);
+                getJoyconValue.SetJoyconRumble(shakeAndEnterObject.left_right, 0.6f, 80);
                 AudioClipCreate.Instance.SoundOn(true);
                 Debug.Log(manager.point);
             }
@@ -127,6 +153,7 @@ public class Catch : MonoBehaviour
                 Destroy(obj);
                 manager.point -= 10;
                 PointChangeDisplay.Instance.DisplayChangePoint(-10);
+                getJoyconValue.SetJoyconRumble(shakeAndEnterObject.left_right, 0.6f, 300);
                 AudioClipCreate.Instance.SoundOn(false);
                 Debug.Log(manager.point);
             }
@@ -136,6 +163,7 @@ public class Catch : MonoBehaviour
                 Destroy(obj);
                 manager.point -= 3;
                 PointChangeDisplay.Instance.DisplayChangePoint(-3);
+                getJoyconValue.SetJoyconRumble(shakeAndEnterObject.left_right, 0.6f, 300);
                 AudioClipCreate.Instance.SoundOn(false);
                 Debug.Log(manager.point);
             }
@@ -145,6 +173,7 @@ public class Catch : MonoBehaviour
                 Destroy(obj);
                 manager.point -= 3;
                 PointChangeDisplay.Instance.DisplayChangePoint(-3);
+                getJoyconValue.SetJoyconRumble(shakeAndEnterObject.left_right, 0.6f, 300);
                 AudioClipCreate.Instance.SoundOn(false);
                 Debug.Log(manager.point);
             }
@@ -154,6 +183,7 @@ public class Catch : MonoBehaviour
                 Destroy(obj);
                 manager.point += 10;
                 PointChangeDisplay.Instance.DisplayChangePoint(10);
+                getJoyconValue.SetJoyconRumble(shakeAndEnterObject.left_right, 0.6f, 80);
                 AudioClipCreate.Instance.SoundOn(true);
                 Debug.Log(manager.point);
             }
@@ -163,6 +193,7 @@ public class Catch : MonoBehaviour
                 Destroy(obj);
                 manager.point -= 10;
                 PointChangeDisplay.Instance.DisplayChangePoint(-10);
+                getJoyconValue.SetJoyconRumble(shakeAndEnterObject.left_right, 0.6f, 300);
                 AudioClipCreate.Instance.SoundOn(false);
                 Debug.Log(manager.point);
             }
@@ -172,6 +203,7 @@ public class Catch : MonoBehaviour
                 Destroy(obj);
                 manager.point += 3;
                 PointChangeDisplay.Instance.DisplayChangePoint(3);
+                getJoyconValue.SetJoyconRumble(shakeAndEnterObject.left_right, 0.6f, 80);
                 AudioClipCreate.Instance.SoundOn(true);
                 Debug.Log(manager.point);
             }
@@ -181,6 +213,7 @@ public class Catch : MonoBehaviour
                 Destroy(obj);
                 manager.point += 3;
                 PointChangeDisplay.Instance.DisplayChangePoint(3);
+                getJoyconValue.SetJoyconRumble(shakeAndEnterObject.left_right, 0.6f, 80);
                 AudioClipCreate.Instance.SoundOn(true);
                 Debug.Log(manager.point);
             }
@@ -190,6 +223,7 @@ public class Catch : MonoBehaviour
                 Destroy(obj);
                 manager.point += 10;
                 PointChangeDisplay.Instance.DisplayChangePoint(10);
+                getJoyconValue.SetJoyconRumble(shakeAndEnterObject.left_right, 0.6f, 80);
                 AudioClipCreate.Instance.SoundOn(true);
                 Debug.Log(manager.point);
             }
@@ -199,6 +233,7 @@ public class Catch : MonoBehaviour
                 Destroy(obj);
                 manager.point += 10;
                 PointChangeDisplay.Instance.DisplayChangePoint(10);
+                getJoyconValue.SetJoyconRumble(shakeAndEnterObject.left_right, 0.6f, 80);
                 AudioClipCreate.Instance.SoundOn(true);
                 Debug.Log(manager.point);
             }

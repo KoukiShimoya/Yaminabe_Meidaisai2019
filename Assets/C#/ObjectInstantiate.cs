@@ -14,6 +14,8 @@ public class ObjectInstantiate : MonoBehaviour
     {
         while (true)
         {
+            yield return new WaitForSeconds(2f);
+            Debug.Log("Instantiate");
             GameObject item = itemList[UnityEngine.Random.Range(0, itemList.Count)];
             GameObject instantiatedItem = Instantiate(item);
             Vector2 position = instantiatedItem.transform.localPosition;
@@ -21,8 +23,6 @@ public class ObjectInstantiate : MonoBehaviour
             position.y = 0;
             instantiatedItem.transform.localPosition = position;
             instantiatedItem.GetComponent<SpriteRenderer>().sortingOrder = UnityEngine.Random.Range(2, 4);
-            
-            yield return new WaitForSeconds(2f);
         }
     }
 }
